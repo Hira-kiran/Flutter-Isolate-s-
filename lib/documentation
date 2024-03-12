@@ -1,0 +1,31 @@
+
+ ******** Isolates *******
+
+Isolate mean separate 
+We perform heavy operations without effecting the UI performance.
+Isolate.spown() mean creating a new instance.
+RecievePort, SendPort just like a pipe in which one end is for listen and one end is for speak.
+RecievePort is for listen.
+
+************ Why Use Isolates? **********
+Performance: For compute-intensive operations that could slow down the UI, running them in an isolate prevents jank and ensures a smooth user experience.
+Concurrency: Dart uses a single-threaded model, but isolates allow for concurrent execution of code, making it possible to perform multiple tasks in parallel without blocking the main thread.
+Background Work: Tasks such as data processing, network requests, or I/O operations can be offloaded to an isolate, allowing the main thread to remain responsive.
+
+"Keep things smooth:" If your app needs to do something heavy that might slow it down, an isolate can take care of it without causing any lag in what the user sees or interacts with.
+"Do more at once:" Since Flutter usually does one thing at a time, using isolates lets your app multitask, doing several things at once without problems.
+"Work in the background:" Isolates are perfect for tasks that don't need immediate attention, like getting data from the internet or saving stuff, allowing the main part of your app to stay fast and responsive.
+
+************ Use Cases of Isolates ************
+
+"Getting and sorting out information in the background:" Like updating your app with new data from the internet without stopping the user from using the app.
+"Hard tasks:" Like editing photos or videos, which take a lot of computing power.
+"Handling real-time updates": For apps that need to show new information right away, like scores for live sports.
+Working with databases or files: If your app needs to save or read a lot of data, doing it in an isolate keeps things running smoothly.
+"Heavy Computations:" Tasks that require heavy computational work, such as complex mathematical calculations or data analysis, can be moved to an isolate. This is especially useful in applications that need to process data in real-time, like a finance app calculating real-time stock predictions.
+
+"Long-running Tasks:" Any task that is expected to run longer than a few milliseconds and does not require immediate interaction with the UI can be a candidate for isolates. This includes things like syncing data in the background, running periodic checks, or processing input from external devices.
+
+"Generating PDFs or Reports:" Generating documents, such as PDFs or complex reports from data, can be a time-consuming process. Running this generation in an isolate ensures that the user can still interact with the app while the documents are being prepared.
+
+By moving these types of workloads to an isolate, Flutter apps can maintain high performance and responsiveness, even when undertaking heavy or long-running tasks. This improves the overall user experience, making apps feel faster and more responsive.
